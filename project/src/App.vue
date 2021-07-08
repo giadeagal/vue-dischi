@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-   
+   pippo
   </div>
 </template>
 
@@ -18,7 +18,5 @@ export default {
 <style lang="scss">
 @import "./styles/commons.scss";
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-}
+#app { font-family: "Advent Pro"; }
 </style>
