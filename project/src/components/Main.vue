@@ -1,7 +1,7 @@
 <template>
   <main>
       <div class="container">
-          <Card/>
+          <Card prova="Hey!"/>
       </div>
   </main>
 </template>

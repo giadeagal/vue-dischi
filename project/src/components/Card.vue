@@ -1,10 +1,13 @@
 <template>
-  <div class="container"></div>
+  <div class="container">
+      {{prova}}
+  </div>
 </template>
 
 <script>
 export default {
-    name:"Card"
+    name:"Card",
+    props: ["prova"]
 }
 </script>
 
