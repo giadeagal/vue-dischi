@@ -27,6 +27,10 @@ h3,p {
     text-align: center;
 }
 
+h3 {
+    text-transform: uppercase;
+}
+
 p {
     color: gray;
 }
