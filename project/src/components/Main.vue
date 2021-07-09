@@ -1,15 +1,9 @@
 <template>
   <main>
       <div class="container">
-          <div class="row justify-content-between">
-              <div class="col-3">
-                  <Card prova="Hey!"/>
-              </div>
-              <div class="col-3">
-                  <Card prova="Hey!"/>
-              </div>
-              <div class="col-3">
-                  <Card prova="Hey!"/>
+          <div class="row justify-content-around">
+              <div v-for="(e, i) in albumList" :key="i" class="col-2 m-2">
+                  <Card :album="e"/>
               </div>
           </div>
       </div>
@@ -39,32 +33,41 @@ export default {
             axios
                 .get(this.apiURL)
                 .then (x => {
-                    console.log(x)
+                    this.albumList = x.data.response;
+                    console.log(this.albumList);
                 })
         }
     }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @import "../styles/vars.scss";
 
 main {
     background-color: $spotiblue;
-    height: calc(100vh - 50px);
+    height: 100%;
     display: flex;
     align-items: center;
 
     .container {
-        height: 400px;  //debug
+        height: 100%;
+        margin-top: 50px;
     }
 }
 
-.col-3 {
-    border: 1px dashed teal;  //debug
-    max-height: 80px;
-    padding-top: 20px;
-    color: white;  //debug
+.col-2 {
+    padding: 20px 0;
+    background-color: $spotigray;
+    h3 {
+        font-size: 1.3rem;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    small {
+        color: gray;
+    }
 }
 
 
