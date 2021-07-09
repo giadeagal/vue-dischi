@@ -1,20 +1,49 @@
 <template>
   <main>
       <div class="container">
-          <Card prova="Hey!"/>
+          <div class="row justify-content-between">
+              <div class="col-3">
+                  <Card prova="Hey!"/>
+              </div>
+              <div class="col-3">
+                  <Card prova="Hey!"/>
+              </div>
+              <div class="col-3">
+                  <Card prova="Hey!"/>
+              </div>
+          </div>
       </div>
   </main>
 </template>
 
 <script>
 import Card from '.././components/Card.vue';
+import axios from "axios";
 
 export default {
   name: 'Main',
   components: {
       Card
-  }
-}
+  },
+  data() {
+      return {
+          apiURL: "https://flynn.boolean.careers/exercises/api/array/music",
+          albumList: []
+      }
+    },
+    created() {
+        this.getAlbum();
+    },
+    methods: {
+        getAlbum() {
+            axios
+                .get(this.apiURL)
+                .then (x => {
+                    console.log(x)
+                })
+        }
+    }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -27,9 +56,15 @@ main {
     align-items: center;
 
     .container {
-        background-color: red; //debug
         height: 400px;  //debug
     }
+}
+
+.col-3 {
+    border: 1px dashed teal;  //debug
+    max-height: 80px;
+    padding-top: 20px;
+    color: white;  //debug
 }
 
 
